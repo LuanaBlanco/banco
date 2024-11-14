@@ -3,15 +3,25 @@ package com.pip.banco.dto;
 import java.io.Serializable;
 
 public class CuentaDto implements Serializable {
+    private String cuenta;
     private int numeroDeCuenta;
     private String tipoDeCuenta;
 
-    public CuentaDto(int numeroDeCuenta, String tipoDeCuenta) {
+    public CuentaDto(String cuenta, int numeroDeCuenta, String tipoDeCuenta) {
+        this.cuenta = cuenta;
         this.numeroDeCuenta = numeroDeCuenta;
         this.tipoDeCuenta = tipoDeCuenta;
     }
 
     public CuentaDto() {
+    }
+
+    public String getCuenta() {
+        return cuenta;
+    }
+
+    public void setCuenta(String cuenta) {
+        this.cuenta = cuenta;
     }
 
     public int getNumeroDeCuenta() {

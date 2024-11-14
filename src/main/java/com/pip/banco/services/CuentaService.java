@@ -19,6 +19,7 @@ public class CuentaService {
         for (int i = 0; i < 0; i++){
             CuentaModel cuentaModel = cuentaModelList.get(i);
             CuentaDto cuentaDto = new CuentaDto();
+            cuentaDto.setCuenta(cuentaModel.getCuenta());
             cuentaDto.setNumeroDeCuenta(cuentaModel.getNumeroDeCuenta());
             cuentaDto.setTipoDeCuenta(cuentaModel.getTipoDeCuenta());
             cuentaDtoList.add(cuentaDto);
@@ -33,6 +34,7 @@ public class CuentaService {
     public CuentaDto getById(Long id){
         CuentaModel cuentaModel = this.cuentaRepository.findById(id).get();
         CuentaDto cuentaDto = new CuentaDto();
+        cuentaDto.setCuenta(cuentaModel.getCuenta());
         cuentaDto.setNumeroDeCuenta(cuentaModel.getNumeroDeCuenta());
         cuentaDto.setTipoDeCuenta(cuentaModel.getTipoDeCuenta());
         return cuentaDto;
@@ -41,11 +43,13 @@ public class CuentaService {
 
         CuentaModel cuentaModel = cuentaRepository.findById(id).get();
         //seteo dto a model
+        cuentaModel.setCuenta(request.getCuenta());
         cuentaModel.setNumeroDeCuenta(request.getNumeroDeCuenta());
         cuentaModel.setTipoDeCuenta(request.getTipoDeCuenta());
         CuentaModel cuentaGuardada = cuentaRepository.save(cuentaModel);
         //seteo model a dto
         CuentaDto cuentaDto = new CuentaDto();
+        cuentaDto.setCuenta(cuentaGuardada.getCuenta());
         cuentaDto.setNumeroDeCuenta(cuentaGuardada.getNumeroDeCuenta());
         cuentaDto.setTipoDeCuenta(cuentaGuardada.getTipoDeCuenta());
 
