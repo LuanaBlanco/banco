@@ -16,7 +16,7 @@ public class CuentaService {
     public List<CuentaDto> getCuenta(){
         List<CuentaModel> cuentaModelList = this.cuentaRepository.findAll();
         List<CuentaDto> cuentaDtoList = new ArrayList<>();
-        for (int i = 0; i < 0; i++){
+        for (int i = 0; i < cuentaModelList.size(); i++){
             CuentaModel cuentaModel = cuentaModelList.get(i);
             CuentaDto cuentaDto = new CuentaDto();
             cuentaDto.setCuenta(cuentaModel.getCuenta());
